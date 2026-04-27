@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   AIMonk Tag Tree Editor — Global Styles
+   Premium dark-mode with glassmorphism
+   ============================================================ */
+
+/* --- Base resets -------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* --- App layout --------------------------------------------- */
+.app-shell {
+  width: min(100% - 2rem, 1120px);
+  max-width: 1120px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 0 1.5rem;
+}
+
+.editor-card,
+.export-card {
+  width: 100%;
+}
+
+.editor-card {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+/* --- Scrollbar ---------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* --- Glassmorphism card ------------------------------------- */
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+}
+
+.glass-card-light {
+  background: rgba(51, 65, 85, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+}
+
+/* --- Tag node header ---------------------------------------- */
+.tag-header {
+  transition: all 0.2s ease;
+}
+
+.tag-header:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* --- Collapse / expand animation ---------------------------- */
+.tag-children-enter {
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Button glow -------------------------------------------- */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.3), transparent 70%);
+}
+
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* --- Gradient text ------------------------------------------ */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Tree connector lines ----------------------------------- */
+.tree-node {
+  position: relative;
+}
+
+.tree-node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -16px;
+  width: 16px;
+  height: 20px;
+  border-left: 2px solid rgba(99, 102, 241, 0.2);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+  border-bottom-left-radius: 8px;
+}
+
+.tree-node:last-child::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -16px;
+  width: 2px;
+  height: calc(100% - 20px);
+  background: transparent;
+}
+
+.tree-root::before {
+  display: none;
+}
+
+/* --- Input focus glow --------------------------------------- */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+/* --- Pulse animation for loading ---------------------------- */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* --- JSON export block -------------------------------------- */
+.json-panel {
+  position: relative;
+}
+
+.json-panel-header {
+  position: absolute;
+  top: 0.85rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.copy-json-button {
+  pointer-events: auto;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.92);
+  color: #c7d2fe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.55rem 0.75rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.copy-json-button:hover {
+  border-color: rgba(129, 140, 248, 0.65);
+  background: rgba(79, 70, 229, 0.28);
+  color: #fff;
+}
+
+.json-block {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #a5b4fc;
+  width: 100%;
+  min-height: 220px;
+  overflow-x: auto;
+  max-height: min(52vh, 460px);
+  overflow-y: auto;
+  padding-top: 3.25rem !important;
+  white-space: pre;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100% - 1rem, 1120px);
+    padding-top: 1rem;
+  }
+
+  .json-panel-header {
+    position: sticky;
+    top: 0;
+    left: auto;
+    right: auto;
+    padding: 0.75rem 0.75rem 0;
+    margin-bottom: -2.5rem;
+  }
+
+  .json-block {
+    max-height: 58vh;
+  }
+}

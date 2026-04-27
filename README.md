@@ -288,9 +288,11 @@ root
 
 ### Tree Editor (Dark Mode)
 The main editor with a loaded tree, showing collapse toggles, editable data inputs, node type badges, and the Add Child buttons.
+[assets/Tree.png]
 
 ### Export Panel
 After clicking "Export & Save", the serialized JSON output is displayed in a code block with a "Copy JSON" button. The tree is simultaneously saved to the database.
+[assets/Export.png]
 
 ### Saved Trees
 Previously saved trees appear in the "Saved Trees" panel with their ID, name, and timestamps (in IST). Click any saved tree to load it into the editor.

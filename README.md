@@ -117,7 +117,7 @@ AI_Monk_Assignment/
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/<your-username>/aimonk-tag-tree.git](https://github.com/arry043/AI_Monk_Assignment.git)
+git clone https://github.com/arry043/AI_Monk_Assignment.git
 cd aimonk-tag-tree
 ```
 

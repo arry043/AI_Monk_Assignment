@@ -288,11 +288,11 @@ root
 
 ### Tree Editor (Dark Mode)
 The main editor with a loaded tree, showing collapse toggles, editable data inputs, node type badges, and the Add Child buttons.
-[[assets/Tree.png]](https://github.com/arry043/AI_Monk_Assignment/blob/1080eb2011164380189262b3a93c0007b06c4a9d/assets/Tree.png)
+![Tree Editor](https://raw.githubusercontent.com/arry043/AI_Monk_Assignment/main/assets/Tree.png)
 
 ### Export Panel
 After clicking "Export & Save", the serialized JSON output is displayed in a code block with a "Copy JSON" button. The tree is simultaneously saved to the database.
-[[assets/Export.png]](https://github.com/arry043/AI_Monk_Assignment/blob/1080eb2011164380189262b3a93c0007b06c4a9d/assets/Export.png)
+![Export Panel](https://raw.githubusercontent.com/arry043/AI_Monk_Assignment/main/assets/Export.png)
 
 ### Saved Trees
 Previously saved trees appear in the "Saved Trees" panel with their ID, name, and timestamps (in IST). Click any saved tree to load it into the editor.
@@ -301,7 +301,7 @@ Previously saved trees appear in the "Saved Trees" panel with their ID, name, an
 
 ## 📄 License
 
-This project was built as part of the **AIMonk Technology** coding assignment by Arif Ansari [[Portfolio]](https://arif-ansari.onrender.com/)
+This project was built as part of the **AIMonk Technology** coding assignment by Arif Ansari [Portfolio](https://arif-ansari.onrender.com/)
 
 ---
 
